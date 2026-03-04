@@ -2,19 +2,124 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>StockManagementApp</title>
+    <title>Stock Management App</title>
     <base href="/" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" type="image/x-icon" sizes="32x32" href="assets/images/download (2).png" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
       rel="stylesheet"
     />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1976d2" />
   </head>
+
   <body>
-    <app-root></app-root>
+    <app-root>
+      <div class="loader-container">
+        <div class="loader-wrapper">
+          <span class="loader-ring"></span>
+          <img src="assets/images/download (2).png" class="loader-logo" alt="GDI Logo" />
+        </div>
+      </div>
+
+      <style>
+        :root {
+          --gdi-maroon: #7b1113;
+          --gdi-gold: #c9a227;
+          --gdi-gold-light: #e8c96a;
+          --gdi-green: #1a6b2a;
+          --gdi-green-light: #2ea84a;
+        }
+
+        body {
+          margin: 0;
+          background: #0a0a0a;
+        }
+
+        .loader-container {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          inset: 0;
+          background: #0a0a0a;
+        }
+
+        .loader-wrapper {
+          position: relative;
+          width: 102px;
+          height: 102px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .loader-ring {
+          position: absolute;
+          width: 102px;
+          height: 102px;
+          border-radius: 50%;
+          box-sizing: border-box;
+          border: 3px solid transparent;
+          background: conic-gradient(
+              from 0deg,
+              transparent 0%,
+              rgba(201, 162, 39, 0.15) 8%,
+              var(--gdi-gold) 28%,
+              var(--gdi-gold-light) 33%,
+              transparent 34%,
+              rgba(123, 17, 19, 0.15) 41%,
+              var(--gdi-maroon) 61%,
+              #cc2a2a 66%,
+              transparent 67%,
+              rgba(26, 107, 42, 0.15) 74%,
+              var(--gdi-green) 94%,
+              var(--gdi-green-light) 99%,
+              transparent 100%
+            )
+            border-box;
+          -webkit-mask:
+            linear-gradient(#0a0a0a 0 0) padding-box,
+            linear-gradient(#0a0a0a 0 0);
+          -webkit-mask-composite: destination-out;
+
+          mask:
+            linear-gradient(#0a0a0a 0 0) padding-box,
+            linear-gradient(#0a0a0a 0 0);
+          mask-composite: exclude;
+
+          animation: spin-cw 2.8s ease-in-out infinite;
+          filter: drop-shadow(0 0 4px var(--gdi-gold)) drop-shadow(0 0 4px var(--gdi-maroon))
+            drop-shadow(0 0 4px var(--gdi-green));
+        }
+
+        .loader-logo {
+          width: 100px;
+          height: 100px;
+          object-fit: contain;
+          border-radius: 50%;
+          position: relative;
+          z-index: 2;
+        }
+
+        @keyframes spin-cw {
+          0% {
+            transform: rotate(0deg);
+          }
+
+          100% {
+            transform: rotate(360deg);
+          }
+        }
+      </style>
+    </app-root>
+    <noscript>Please enable JavaScript to continue using this application.</noscript>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script nomodule="" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   </body>
 </html>
