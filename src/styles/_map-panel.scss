@@ -1,0 +1,261 @@
+.app-main {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.map-overlay {
+    position: absolute;
+    z-index: 1000;
+    pointer-events: none;
+
+    > * {
+        pointer-events: all;
+    }
+}
+
+.overlay-search {
+    top: 30px;
+    left: 16px;
+    width: 100%;
+    max-width: 420px;
+}
+
+.overlay-layers {
+    bottom: 40px;
+    left: 16px;
+}
+
+.overlay-dock-profile {
+    position: absolute;
+    top: 165px;
+    left: 16px;
+    z-index: 400;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(6px);
+    transition:
+        opacity 0.2s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &.visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+    }
+}
+
+.dock-detail-panel {
+    width: 330px;
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(28px) saturate(200%);
+    -webkit-backdrop-filter: blur(28px) saturate(200%);
+    border-radius: 12px;
+    border: 1.5px solid rgba(255, 255, 255, 0.9);
+    box-shadow:
+        0 16px 48px rgba(0, 0, 0, 0.13),
+        0 4px 12px rgba(0, 0, 0, 0.06),
+        inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    overflow: hidden;
+    color: #111827;
+
+    .ddp-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 14px 10px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        background: rgba(255, 255, 255, 0.6);
+
+        .ddp-header-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ddp-dot {
+            flex-shrink: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+
+            &.status-active {
+                background: #22c55e;
+                box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.18);
+            }
+
+            &.status-inactive {
+                background: #cbd5e1;
+            }
+        }
+
+        .ddp-title {
+            font-size: var(--font-size-14-15px);
+            font-weight: 600;
+            color: #111827;
+            margin: 0;
+            line-height: 1.2;
+        }
+
+        .ddp-subtitle {
+            font-size: 12px;
+            color: #6b7280;
+            margin: 2px 0 0;
+        }
+
+        .ddp-close {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.05);
+            border: none;
+            cursor: pointer;
+            color: #9ca3af;
+            padding: 4px;
+            border-radius: 24px;
+            transition:
+                background 0.15s,
+                color 0.15s;
+
+            mat-icon {
+                font-size: 18px;
+                width: 18px;
+                height: 18px;
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.1);
+                color: #374151;
+            }
+        }
+    }
+
+    .ddp-body {
+        padding: 10px 14px 14px;
+        max-height: calc(100vh - 220px);
+        overflow-y: auto;
+    }
+
+    .ddp-section-title {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #aab0bd;
+        margin: 12px 0 6px;
+    }
+
+    .ddp-row {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.045);
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+
+    .ddp-label {
+        font-size: 13.5px;
+        color: #6b7280;
+        flex-shrink: 0;
+        padding-top: 1px;
+    }
+
+    .ddp-value {
+        font-size: 13.5px;
+        color: #111827;
+        font-weight: 500;
+        text-align: right;
+
+        &.ddp-badge {
+            background: rgba(66, 133, 244, 0.1);
+            color: #4285f4;
+            border-radius: 20px;
+            padding: 1px 8px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        &.ddp-mono {
+            font-family: "IBM Plex Mono", monospace;
+            font-size: 12.5px;
+            word-break: break-all;
+            color: #374151;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        &.ddp-copyable {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            cursor: pointer;
+            border-radius: 4px;
+            padding: 2px 4px;
+            transition: background 0.15s;
+
+            .ddp-copy-icon {
+                font-size: 14px;
+                width: 12px;
+                height: 12px;
+                color: #9ca3af;
+                opacity: 0;
+                transition: opacity 0.15s;
+            }
+
+            &:hover {
+                background: rgba(0, 0, 0, 0.04);
+
+                .ddp-copy-icon {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .ddp-footer {
+        padding: 12px 14px 4px;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        margin-top: 8px;
+    }
+
+    .ddp-cockpit-btn {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+        padding: 10px 16px;
+        border: none;
+        border-radius: 8px;
+        background: #4285f4;
+        color: #ffffff;
+        font-size: 14px;
+        font-weight: 500;
+        cursor: pointer;
+        box-shadow: 0 2px 8px rgba(66, 133, 244, 0.3);
+        transition:
+            background 0.2s,
+            box-shadow 0.2s;
+
+        mat-icon {
+            font-size: 18px;
+            width: 18px;
+            height: 18px;
+        }
+
+        &:hover {
+            background: #3367d6;
+            box-shadow: 0 4px 14px rgba(66, 133, 244, 0.4);
+        }
+
+        &:active {
+            background: #2b5bc4;
+            box-shadow: 0 1px 4px rgba(66, 133, 244, 0.25);
+        }
+    }
+}

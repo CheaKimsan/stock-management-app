@@ -1,0 +1,61 @@
+@use "@angular/material" as mat;
+
+html {
+  @include mat.theme(
+    (
+      color: (
+        theme-type: light,
+        primary: mat.$azure-palette,
+        tertiary: mat.$blue-palette
+      ),
+      typography: (
+        brand-family: Roboto,
+        bold-weight: 700,
+        medium-weight: 500,
+        regular-weight: 400
+      ),
+      density: 0
+    )
+  );
+}
+
+body,
+.mat-typography {
+  font-family: var(--font-family-default) !important;
+}
+
+.mat-tab-header {
+  background-color: var(--color-dark);
+}
+
+.mat-mdc-progress-spinner .mdc-circular-progress__determinate-circle,
+.mat-mdc-progress-spinner .mdc-circular-progress__indeterminate-circle-graphic {
+  stroke: var(--color-dark) !important;
+}
+
+.mat-mdc-dialog-content {
+  max-height: unset !important;
+}
+
+.mat-mdc-menu-panel.mat-mdc-menu-panel {
+  max-width: unset !important;
+}
+
+.mat-mdc-menu-content {
+  padding: 0 !important;
+}
+
+.mat-mdc-menu-item .mat-icon {
+  font-size: var(--font-size-20px);
+  height: 18px;
+  width: 18px;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  border-radius: 8px !important;
+}
+
+.mdc-dialog__actions {
+  border-top: 1px solid var(--media-inner-border) !important;
+  padding: 16px !important;
+}

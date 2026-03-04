@@ -1,0 +1,119 @@
+.auth-container-wrapper,
+app-login,
+app-account-register {
+  background: linear-gradient(180deg, #000 0, #0f72c5);
+  font-family: var(--font-family-default);
+
+  .f-pwd {
+    a {
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+  }
+
+  .title-desc {
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Moul", serif;
+    color: transparent;
+    background: linear-gradient(to right, rgb(25, 115, 231) 20%, rgb(52, 168, 83) 80%);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    line-height: 1.8em;
+    margin-bottom: 10px;
+  }
+}
+
+.auth-container-wrapper,
+app-login {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-inner-form {
+  background-color: var(--color-background-form);
+  max-width: 390px;
+  color: #717171;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 0 36px #0000001a;
+  padding: 35px;
+  border-radius: 8px;
+
+  .p-fluid .p-inputtext {
+    height: 45px;
+    border-radius: 50px;
+    padding: 10px 20px;
+  }
+
+  .p-field {
+    padding-bottom: 25px;
+    position: relative;
+  }
+
+  .p-invalid {
+    position: absolute;
+    bottom: 2px;
+    display: block;
+    left: 24px;
+  }
+}
+
+.clock-display {
+  text-align: center;
+  margin-bottom: 30px;
+  .clock-time {
+    font-size: 30px;
+    font-weight: bold;
+    color: #1a1a1a;
+    letter-spacing: 1px;
+    margin: 4px 0;
+  }
+
+  .clock-date {
+    font-size: 18px;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0 0 8px 0;
+  }
+}
+
+.form-group-inline {
+  display: flex;
+  margin-bottom: 25px;
+}
+
+.ms-error {
+  color: #73000c;
+  margin-bottom: 24px;
+  transition: all 0.5s ease-in-out;
+}
+
+.f-pwd {
+  a {
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+}
+
+.ft-desc-copyright {
+  color: var(--color-primary-text);
+  font-size: var(--font-size-14-15px);
+  margin-top: 40px;
+}
+
+.ft-desc-version {
+  color: var(--color-primary-text);
+  font-size: var(--font-size-14-15px);
+  margin-bottom: 10px;
+}

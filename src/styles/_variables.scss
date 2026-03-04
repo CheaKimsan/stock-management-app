@@ -1,0 +1,283 @@
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$gutter: 0.5rem;
+
+$fieldMargin: 1rem;
+$fieldLabelMargin: 0.5rem;
+$helperTextMargin: 0.25rem;
+
+$spacer: 1rem;
+
+:root,
+.__core-light-mode {
+  --color-background-page: #ffffff;
+  --color-background-form: #e8ebef;
+
+  --color-primary: #1b74e4;
+
+  --color-primary-bg: #f1f2f5;
+  --color-primary-dark-bg: #22282f;
+  --color-primary-bg-hover: #c5cae9;
+  --color-primary-bg-active: #9fa8da;
+  --color-primary-bg-focus: #c5cae9;
+  --color-primary-bg-disabled: #e8eaf6;
+
+  --color-primary-text: #111213;
+  --color-primary-text-hover: #ffffff;
+  --color-primary-text-active: #ffffff;
+  --color-primary-text-focus: #ffffff;
+  --color-primary-text-disabled: #ffffff;
+
+  --color-secondary: #ff4081;
+
+  --color-secondary-bg: #f8bbd0;
+  --color-secondary-bg-hover: #f48fb1;
+  --color-secondary-bg-active: #f06292;
+  --color-secondary-bg-focus: #f48fb1;
+  --color-secondary-bg-disabled: #f8bbd0;
+
+  --color-secondary-text: rgba(17, 18, 19, 0.7);
+  --color-secondary-text-hover: #ffffff;
+  --color-secondary-text-active: #ffffff;
+  --color-secondary-text-focus: #ffffff;
+  --color-secondary-text-disabled: #ffffff;
+
+  --color-error: #f44336;
+  --color-error-bg: #ffcdd2;
+  --color-error-bg-hover: #ef9a9a;
+  --color-error-bg-active: #e57373;
+  --color-error-bg-focus: #ef9a9a;
+  --color-error-bg-disabled: #ffcdd2;
+  --color-error-text: #ffffff;
+  --color-error-text-hover: #ffffff;
+  --color-error-text-active: #ffffff;
+  --color-error-text-focus: #ffffff;
+  --color-error-text-disabled: #ffffff;
+  --color-warning: #ff9800;
+  --color-warning-bg: #ffe0b2;
+  --color-warning-bg-hover: #ffcc80;
+  --color-warning-bg-active: #ffb74d;
+  --color-warning-bg-focus: #ffcc80;
+  --color-warning-bg-disabled: #ffe0b2;
+  --color-warning-text: #ffffff;
+  --color-warning-text-hover: #ffffff;
+  --color-warning-text-active: #ffffff;
+  --color-warning-text-focus: #ffffff;
+  --color-warning-text-disabled: #ffffff;
+  --color-info: #2196f3;
+  --color-info-bg: #bbdefb;
+  --color-info-bg-hover: #90caf9;
+  --color-info-bg-active: #64b5f6;
+  --color-info-bg-focus: #90caf9;
+  --color-info-bg-disabled: #bbdefb;
+  --color-info-text: #ffffff;
+  --color-info-text-hover: #ffffff;
+  --color-info-text-active: #ffffff;
+  --color-info-text-focus: #ffffff;
+  --color-info-text-disabled: #ffffff;
+  --color-success: #4caf50;
+  --color-success-bg: #c8e6c9;
+  --color-success-bg-hover: #a5d6a7;
+  --color-success-bg-active: #81c784;
+  --color-success-bg-focus: #a5d6a7;
+  --color-success-bg-disabled: #c8e6c9;
+  --color-success-text: #ffffff;
+  --color-success-text-hover: #ffffff;
+  --color-success-text-active: #ffffff;
+  --color-success-text-focus: #ffffff;
+  --color-success-text-disabled: #ffffff;
+
+  // background-color
+  --color-white: #ffffff;
+  --color-dark: #252728;
+  --color-avatar: #d4d6dc;
+
+  // create a variable for each breakpoint
+  --breakpoint-sm: #{$sm};
+  --breakpoint-md: #{$md};
+  --breakpoint-lg: #{$lg};
+  --breakpoint-xl: #{$xl};
+
+  --font-family-default: Roboto, "Helvetica Neue", sans-serif, "Battambang", cursive;
+  --font-family-title: Roboto, "Helvetica Neue", sans-serif, "Moul", cursive;
+
+  // create variables for border colors
+  --border-color: #e0e0e0;
+  --border-color-hover: #bdbdbd;
+  --border-color-active: #9e9e9e;
+  --border-color-focus: #9e9e9e;
+  --border-color-disabled: #e0e0e0;
+
+  /* Dark sidebar borders */
+  --border-color-dark: rgba(255, 255, 255, 0.08);
+  --border-color-dark-hover: rgba(255, 255, 255, 0.12);
+  --border-color-dark-active: rgba(255, 255, 255, 0.18);
+  --border-color-dark-focus: rgba(255, 255, 255, 0.18);
+  --border-color-dark-disabled: rgba(255, 255, 255, 0.04);
+
+  --shadow-1: rgba(0, 0, 0, 0.1);
+  --shadow-2: rgba(0, 0, 0, 0.2);
+  --shadow-4: 0 0 2px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.14);
+  --shadow-5: rgba(0, 0, 0, 0.5);
+  --shadow-8: rgba(0, 0, 0, 0.8);
+  --shadow-inset: rgba(255, 255, 255, 0.5);
+  --shadow-elevated: 0 8px 20px 0 rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  --shadow-persistent: 0px 0px 12px rgba(52, 72, 84, 0.05);
+
+  --media-hover: rgba(68, 73, 80, 0.15);
+  --media-inner-border: rgba(0, 0, 0, 0.1);
+  --media-outer-border: #ffffff;
+  --media-pressed: rgba(68, 73, 80, 0.35);
+
+  --hover-overlay: rgba(0, 0, 0, 0.05);
+
+  --fds-animation-fade-in: cubic-bezier(0, 0, 1, 1);
+  --fds-animation-fade-out: cubic-bezier(0, 0, 1, 1);
+  --fds-duration-extra-extra-short-in: 100ms;
+  --fds-duration-extra-extra-short-out: 100ms;
+
+  --secondary-button-background: #e4e6eb;
+  --secondary-button-text: #050505;
+
+  --always-dark-gradient: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
+  // font-size
+
+  --font-size-1px: 0.06rem;
+  --font-size-2px: 0.13rem;
+  --font-size-3px: 0.19rem;
+  --font-size-4-5px: 0.3rem;
+  --font-size-6px: 0.4rem;
+  --font-size-8px: 0.5rem;
+  --font-size-9px: 0.56rem;
+  --font-size-10px: 0.6rem;
+  --font-size-12px: 0.8rem;
+  --font-size-13px: 0.813rem;
+  --font-size-14px: 0.875rem;
+  --font-size-15px: 0.938rem;
+  --font-size-14-15px: 0.9rem;
+  --font-size-16px: 1rem;
+  --font-size-17px: 1.063rem;
+  --font-size-18px: 1.1rem;
+  --font-size-20px: 1.3rem;
+  --font-size-21px: 1.313rem;
+  --font-size-22px: 1.375rem;
+  --font-size-24px: 1.5rem;
+  --font-size-25px: 1.6rem;
+  --font-size-26px: 1.625rem;
+  --font-size-28px: 1.8rem;
+  --font-size-40px: 2.5rem;
+  --font-size-42px: 2.625rem;
+  --font-size-48px: 3rem;
+  --font-size-60px: 3.75rem;
+  --font-size-32-36px: 2rem;
+  --font-size-40-44-48-50px: 3rem;
+  --font-size-56-64px: 4rem;
+  --font-size-72-75-80px: 5rem;
+  --font-size-90-100px: 6rem;
+
+  //table
+  --th-bg-color: #fafafa;
+
+  --primary-icon: #050505;
+  --primary-text: #050505;
+
+  --p-wrapper-pd-top: 56px;
+  --sidebar-width: 256px;
+
+  // ── Sidebar (vc-sidebar)
+
+  /* Layout */
+  --vc-sidebar-width: 320px; /* up from 300px */
+  --vc-sidebar-bg: rgb(33 40 48 / 1);
+
+  /* Accent colors */
+  --vc-accent-blue: #4f8ef7;
+  --vc-accent-blue-rgb: 79, 142, 247;
+  --vc-accent-green: #00e676;
+  --vc-accent-green-rgb: 0, 230, 118;
+  --vc-accent-purple: #9c6af0;
+  --vc-accent-purple-rgb: 156, 106, 240;
+  --vc-accent-orange: #ff9800;
+
+  /* Text hierarchy */
+  --vc-text-primary: #e2e8f0;
+  --vc-text-secondary: rgba(255, 255, 255, 0.65);
+  --vc-text-muted: rgba(255, 255, 255, 0.28);
+  --vc-text-faint: rgba(255, 255, 255, 0.2);
+  --vc-text-label: rgba(255, 255, 255, 0.16);
+
+  /* Surface / border */
+  --vc-surface-hover: rgba(255, 255, 255, 0.05);
+  --vc-surface-subtle: rgba(255, 255, 255, 0.03);
+  --vc-border-subtle: rgba(255, 255, 255, 0.06);
+  --vc-border-faint: rgba(255, 255, 255, 0.04);
+  --vc-border-mid: rgba(255, 255, 255, 0.07);
+  --vc-border-tabs: rgba(255, 255, 255, 0.09);
+
+  /* Tabs */
+  --vc-tab-padding-y: 10px;
+  --vc-tab-padding-x: 8px;
+  --vc-tab-font-size: var(--font-size-10px); /* 0.6rem ≈ 10px — up from 9px */
+  --vc-tab-icon-size: 20px; /* up from 16px */
+  --vc-tab-count-size: 18px; /* up from 16px */
+  --vc-tab-count-font-size: var(--font-size-9px); /* up from 8px */
+
+  /* Section label */
+  --vc-section-label-font-size: var(--font-size-10px); /* up from 9px */
+  --vc-section-label-margin-top: 14px;
+  --vc-section-label-margin-bottom: 7px;
+
+  /* Info card */
+  --vc-ic-header-padding: 13px 14px;
+  --vc-ic-icon-size: 42px; /* up from 34px */
+  --vc-ic-icon-radius: 10px;
+  --vc-ic-icon-svg: 22px; /* up from 16px */
+  --vc-ic-title-font-size: var(--font-size-14px); /* up from 13px */
+  --vc-ic-sub-font-size: var(--font-size-12px); /* up from 10px */
+  --vc-ic-row-padding: 7px 14px;
+  --vc-ic-key-font-size: var(--font-size-12px); /* up from 10px */
+  --vc-ic-val-font-size: var(--font-size-12px); /* up from 10px */
+  --vc-ic-val-stream-font-size: var(--font-size-10px); /* up from 9px */
+  --vc-ic-val-mono-font-size: var(--font-size-10px); /* up from 9px */
+  --vc-ic-val-max-width: 175px;
+  --vc-ic-key-min-width: 82px;
+  --vc-ic-desc-padding: 9px 14px;
+  --vc-ic-desc-font-size: var(--font-size-12px); /* up from 10px */
+
+  /* Dot */
+  --vc-dot-size: 7px; /* up from 6px */
+
+  /* List item */
+  --vc-item-padding: 12px; /* up from 10px */
+  --vc-item-radius: 10px;
+  --vc-item-gap: 12px;
+  --vc-item-icon-size: 44px; /* up from 36px */
+  --vc-item-icon-radius: 11px;
+  --vc-item-icon-svg: 22px; /* up from 16px */
+  --vc-item-name-font-size: var(--font-size-14px); /* up from 13px */
+  --vc-item-sub-font-size: var(--font-size-12px); /* up from 10px */
+
+  /* Meta chip */
+  --vc-chip-padding: 4px 9px; /* up from 3px 7px */
+  --vc-chip-radius: 6px;
+  --vc-chip-font-size: var(--font-size-10px); /* up from 9px */
+  --vc-chip-svg: 12px; /* up from 10px */
+
+  /* Fly button */
+  --vc-fly-btn-size: 36px; /* up from 32px */
+  --vc-fly-btn-radius: 9px;
+  --vc-fly-btn-svg: 16px; /* up from 12px */
+
+  /* Command log */
+  --vc-cmd-log-max-height: 130px;
+  --vc-cmd-log-padding: 9px 12px;
+  --vc-cmd-log-header-font-size: var(--font-size-10px); /* up from 9px */
+  --vc-cmd-entry-type-font-size: var(--font-size-12px); /* up from 10px */
+  --vc-cmd-entry-status-font-size: var(--font-size-10px); /* up from 9px */
+
+  /* List section */
+  --vc-list-padding: 12px; /* up from 10px */
+  --vc-list-scrollbar-width: 4px; /* up from 3px */
+}
