@@ -9,10 +9,9 @@ import { RouterModule } from '@angular/router';
 import { APP } from '../../../../../env/app.config';
 import { MappingService } from '../../../../shared/service/mapping.service';
 
-
 @Component({
   selector: 'app-login',
-  standalone: true, // recommended for Angular 21+
+  standalone: true,
   imports: [
     ReactiveFormsModule,
     RouterModule,
@@ -40,7 +39,6 @@ export class Login implements OnInit,OnDestroy {
     password: '',
   });
 
-  // 2️⃣ Create a signal-based form
   loginForm = form(this.loginModel);
 
   constructor() {
