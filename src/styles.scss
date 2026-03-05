@@ -1,62 +1,235 @@
+@use "../src/styles/fonts";
+@use "../src/styles/variables";
+@use "../src/styles/custom-md";
+@use "../src/styles/auth";
+@use "../src/styles/form";
+@use "../src/styles/header";
+@use "../src/styles/sidebar";
+@use "../src/styles/buttons";
+@use "../src/styles/app-loading";
+@use "../src/styles/app";
+@use "../src/styles/page-not-found";
+@use "../src/styles/dashboard-sidebar";
+@use "../src/styles/loader";
+@use "../src/styles/info-panel";
+@use "../src/styles/stats-bar";
+@use "../src/styles/map-view";
+@use "../src/styles/page-header";
+@use "../src/styles/search-bar";
+@use "../src/styles/layer-switcher";
+@use "../src/styles/map-panel";
+@use "../src/styles/vc-sidebar";
 
-/* You can add global styles to this file, and also import other style files */
-@use '../src/styles/fonts';
-@use '../src/styles/variables';
-@use '../src/styles/custom-md';
-@use '../src/styles/auth';
-@use '../src/styles/form';
-@use '../src/styles/header';
-@use '../src/styles/sidebar';
-@use '../src/styles/buttons';
-@use '../src/styles/app-loading';
-@use '../src/styles/app';
-@use '../src/styles/page-not-found';
-@use '../src/styles/dashboard-sidebar';
-@use '../src/styles/loader';
-@use '../src/styles/info-panel';
-@use '../src/styles/stats-bar';
-@use '../src/styles/map-view';
-@use '../src/styles/page-header';
-@use '../src/styles/search-bar';
-@use '../src/styles/layer-switcher';
-@use '../src/styles/map-panel';
-@use '../src/styles/vc-sidebar';
-
-// Include theming for Angular Material with `mat.theme()`.
-// This Sass mixin will define CSS variables that are used for styling Angular Material
-// components according to the Material 3 design spec.
-// Learn more about theming and how to use it for your application's
-// custom components at https://material.angular.dev/guide/theming
-@use '@angular/material' as mat;
-
-html {
-  height: 100%;
-  @include mat.theme(
-    (
-      color: (
-        primary: mat.$azure-palette,
-        tertiary: mat.$blue-palette,
-      ),
-      typography: Roboto,
-      density: 0,
-    )
-  );
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+body {
+    height: 100%;
+    background: var(--color-primary-bg);
+    font-family: var(--font-family-default);
+    margin: 0;
 }
 
-body {
-  // Default the application to a light color theme. This can be changed to
-  // `dark` to enable the dark color theme, or to `light dark` to defer to the
-  // user's system settings.
-  color-scheme: light;
+app-loader {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &.line-bar {
+        align-items: flex-start;
+    }
+}
 
-  // Set a default background, font and text colors for the application using
-  // Angular Material's system-level CSS variables. Learn more about these
-  // variables at https://material.angular.dev/guide/system-variables
-  background-color: var(--mat-sys-surface);
-  color: var(--mat-sys-on-surface);
-  font: var(--mat-sys-body-medium);
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+}
 
-  // Reset the user agent margin.
-  margin: 0;
-  height: 100%;
+.page-wrapper-container {
+    // overflow: hidden;
+}
+.page-container {
+    position: relative;
+    flex: 1;
+    overflow: hidden;
+    padding: 9px;
+
+    &.page-campus-container {
+        overflow: unset;
+        padding: 0;
+    }
+    &.flat-page-container {
+        padding: 0;
+        overflow: unset;
+    }
+}
+
+.page-content {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow-4);
+}
+
+.page-action-bar {
+    display: flex;
+    align-items: center;
+    background-color: var(--color-white);
+    font-size: var(--font-size-12px);
+    &.bottom {
+        box-shadow: inset 0 1px 0 0 rgba(100, 121, 143, 0.122);
+    }
+}
+.scroll-table-wrapper {
+    min-height: 268px;
+    overflow-y: auto;
+    background-color: var(--color-white);
+    max-height: calc(100vh - 220px);
+}
+.table-wrapper {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: var(--font-family-default);
+    td,
+    th {
+        background-color: var(--color-white);
+        padding: 8px;
+        font-size: var(--font-size-12px);
+        box-shadow: inset 0 -1px 0 0 rgba(100, 121, 143, 0.122);
+        white-space: nowrap;
+        .s-status {
+            display: inline-flex;
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+        }
+    }
+    th {
+        position: sticky;
+        top: 0px;
+        padding: 14px 8px;
+        z-index: 2;
+    }
+    tr:hover {
+        td {
+            background-color: #f4f7f7;
+        }
+    }
+}
+
+app-header,
+dashboard-header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.flex-1 {
+    flex: 1;
+}
+.center {
+    text-align: center;
+    .no {
+        width: 50px;
+    }
+}
+
+.right {
+    text-align: right;
+}
+.left {
+    text-align: left;
+}
+.component-tab-nav-bar {
+    .mdc-tab-indicator .mdc-tab-indicator__content--underline {
+        border-top-width: 3px !important;
+    }
+}
+
+app-page-not-available {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 168px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+}
+
+.group-actions {
+    display: inline-flex;
+    align-items: center;
+    .status-btn {
+        border-radius: 16px;
+        padding: 6px 16px;
+        cursor: pointer;
+        background-color: var(--color-white);
+    }
+}
+
+app-no-data {
+    position: absolute;
+    padding: 24px;
+    display: block;
+    flex: 1;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 64px;
+}
+
+.mat-mdc-icon-button.mat-mdc-button-base {
+    width: 38px;
+    height: 38px;
+    padding: 6px;
+}
+
+.cdk-overlay-dark-backdrop {
+    background: rgba(0, 0, 0, 0.1);
+}
+.ngx-timepicker-field {
+    display: inline-flex;
+    position: relative;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+.ngx-timepicker {
+    border: 1px solid rgba(0, 0, 0, 0.12) !important;
+    position: relative;
+    border-radius: 6px;
+    height: 56px !important;
+    .ngx-timepicker-control {
+        align-items: center;
+        .ngx-timepicker-control__arrows {
+            position: relative;
+            display: flex;
+            align-items: center;
+            top: -6px;
+        }
+        .ngx-timepicker-control__arrow {
+            font-size: var(--font-size-8px);
+            height: 10px;
+        }
+    }
+}
+
+.form-dialog-actions {
+    gap: 8px;
+}
+.rq-sign {
+    color: var(--color-error);
+}
+.mdc-floating-label--required:not(.mdc-floating-label--hide-required-marker)::after {
+    color: var(--color-error);
 }

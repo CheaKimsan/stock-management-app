@@ -1,1 +1,41 @@
-<p>login works!</p>
+<div class="login-inner-form">
+  <div class="details">
+    <img [src]="drone.appLogo" style="width: 130px; height: 130px" alt="Logo" />
+
+    <h3 class="title-desc"></h3>
+
+    <div class="clock-display">
+      <p class="clock-time">{{ currentTime() }}</p>
+      <p class="clock-date">{{ currentDate() }}</p>
+    </div>
+
+    <form autocomplete="off">
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>លេខសម្គាល់</mat-label>
+          <input matInput placeholder="លេខសម្គាល់" />
+        </mat-form-field>
+      </div>
+
+      <div class="form-group">
+        <mat-form-field appearance="outline" class="full-width">
+          <mat-label>លេខសម្ងាត់</mat-label>
+          <input matInput type="password" />
+
+          <button mat-icon-button matSuffix type="button">
+            <mat-icon>visibility</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <div class="form-group" style="margin-top: 20px">
+        <button mat-raised-button color="primary" class="core-btn">ចូលប្រើប្រាស់</button>
+      </div>
+
+      <p class="ft-desc-copyright">©{{ currentYear() }} {{ drone.appReferacence }}</p>
+      <p class="ft-desc-version">
+        {{ drone.appVersion }}
+      </p>
+    </form>
+  </div>
+</div>

@@ -2,8 +2,13 @@ import { Routes } from '@angular/router';
 
 export const routes: Routes = [
     {
-        path: 'auth',
-        redirectTo : 'auth/login',
-        pathMatch : 'full'
-    }
+    path: 'auth',
+    loadChildren: () =>
+      import('../app/feature/authentication/auth.route').then(m => m.AUTH_ROUTES)
+  },
+  {
+    path: '',
+    redirectTo: 'auth/login',
+    pathMatch: 'full'
+  }
 ];
