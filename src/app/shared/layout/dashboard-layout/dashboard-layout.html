@@ -1,0 +1,18 @@
+<div [className]="'p-wrapper ' + className">
+    <app-dashboard-header></app-dashboard-header>
+    <app-dashboard-sidebar></app-dashboard-sidebar>
+
+    <main id="main" class="main" [class.no-margin]="!(auth.profile())" role="main">
+        @if (auth.loading()) {
+        <div class="loading-wrapper">
+            <span class="loader"></span>
+        </div>
+        } @else if (auth.profile()) {
+        <router-outlet></router-outlet>
+        } @else {
+        <div class="loading-wrapper">
+            <p>Session expired...!</p>
+        </div>
+        }
+    </main>
+</div>

@@ -1,0 +1,104 @@
+<div class="search-wrapper" [class.focused]="isFocused" [class.has-suggestions]="showSuggestions">
+    <div class="search-bar">
+        <span class="search-icon" [class.search-icon--spin]="isLoading">
+            @if (isLoading) {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round">
+                <path d="M12 2a10 10 0 0 1 10 10" />
+            </svg>
+            } @else {
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
+            }
+        </span>
+
+        <input #searchInput type="text" class="search-input" placeholder="Search places…" [(ngModel)]="query"
+            (input)="onInput()" (focus)="isFocused = true" (blur)="onBlur()" (keydown.escape)="clear()"
+            (keydown.arrowdown)="onArrowDown($event)" (keydown.arrowup)="onArrowUp($event)"
+            (keydown.enter)="onEnter($event)" autocomplete="off" spellcheck="false" />
+
+        @if (query) {
+        <button class="clear-btn" (mousedown)="$event.preventDefault()" (click)="clear()" aria-label="Clear">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round">
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+        </button>
+        }
+
+        <div class="search-divider"></div>
+
+        <button class="directions-btn" aria-label="Directions" title="Get directions">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                    d="M21.71 11.29l-9-9a1 1 0 0 0-1.42 0l-9 9a1 1 0 0 0 0 1.42l9 9a1 1 0 0 0 1.42 0l9-9a1 1 0 0 0 0-1.42zM14 14.5V12h-4v3H8v-4a1 1 0 0 1 1-1h5V7.5l3.5 3.5-3.5 3.5z" />
+            </svg>
+        </button>
+    </div>
+
+    @if (showSuggestions) {
+    <div class="suggestions-panel">
+
+        @if (isLoading) {
+        @for (sk of [1,2,3]; track sk) {
+        <div class="suggestion-skeleton" [style.animation-delay]="(sk * 60) + 'ms'">
+            <div class="skeleton-icon"></div>
+            <div class="skeleton-lines">
+                <div class="skeleton-line skeleton-line--main"></div>
+                <div class="skeleton-line skeleton-line--sub"></div>
+            </div>
+        </div>
+        }
+        }
+
+        @if (!isLoading && suggestions.length > 0) {
+        @for (s of suggestions; track s.raw.placePrediction.placeId; let i = $index) {
+        <div class="suggestion-item" [class.suggestion-item--active]="i === highlightedIndex"
+            [style.animation-delay]="(i * 35) + 'ms'" (mousedown)="$event.preventDefault()"
+            (click)="selectSuggestion(s)">
+
+            <span class="suggestion-pin">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                    <circle cx="12" cy="10" r="3" />
+                </svg>
+            </span>
+
+            <div class="suggestion-text">
+                <span class="suggestion-main">
+                    @for (part of s.mainParts; track $index) {
+                    <mark [class.highlight]="part.highlight" [class.plain]="!part.highlight">{{ part.text }}</mark>
+                    }
+                </span>
+                @if (s.secondary) {
+                <span class="suggestion-sub">{{ s.secondary }}</span>
+                }
+            </div>
+
+            @if (i === highlightedIndex) {
+            <span class="suggestion-enter-hint">↵</span>
+            }
+        </div>
+        }
+        }
+
+        @if (!isLoading && noResults) {
+        <div class="suggestion-empty">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                <line x1="8" y1="11" x2="14" y2="11" />
+            </svg>
+            <span>No results for <strong>"{{ query }}"</strong></span>
+        </div>
+        }
+
+    </div>
+    }
+</div>

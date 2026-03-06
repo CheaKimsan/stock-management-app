@@ -1,0 +1,8 @@
+<div class="toggle-wrapper" [class.disabled]="disabled()" (click)="toggle()">
+  <div class="toggle-track" [class.on]="checked()">
+    <div class="toggle-thumb"></div>
+  </div>
+  @if (label()) {
+    <span class="toggle-label">{{ label() }}</span>
+  }
+</div>

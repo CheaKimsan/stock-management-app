@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Auth } from '../../../../../shared/layout/auth/auth';
 
 @Component({
   selector: 'app-dashboard',

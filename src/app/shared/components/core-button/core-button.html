@@ -1,0 +1,15 @@
+@if (isSubmitType) {
+<button mat-button class="core-btn" [class]="otherClass" [disabled]="disabled" (click)="onClick()">
+    @if (process) {
+    <mat-spinner [diameter]="16"></mat-spinner>
+    }
+    {{ btnTitle }}
+</button>
+} @else {
+<a mat-button class="core-btn" [class]="otherClass" [disabled]="disabled" (click)="onClick()">
+    @if (process) {
+    <mat-spinner [diameter]="16"></mat-spinner>
+    }
+    {{ btnTitle }}
+</a>
+}
