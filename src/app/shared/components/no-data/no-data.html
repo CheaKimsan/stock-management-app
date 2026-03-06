@@ -1,0 +1,9 @@
+<div class="page-information">
+  <div style="height: 120px; margin-bottom: 10px">
+    <ng-lottie [options]="options"></ng-lottie>
+  </div>
+  <p [class.big-title]="bigTitle()">{{ title() ? title() : 'មិនមានទិន្នន័យ!' }}</p>
+  @if (subtitle()) {
+    <p>{{ subtitle() }}</p>
+  }
+</div>

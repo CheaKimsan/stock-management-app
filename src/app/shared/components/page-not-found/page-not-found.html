@@ -1,0 +1,15 @@
+<div class="page-information">
+  <div class="lottie-wrapper">
+    <div class="lottie-wrapper">
+      <ng-lottie [options]="options"></ng-lottie>
+    </div>
+
+    <p [class.big-title]="bigTitle()">
+      {{ title() ?? 'កំពុងត្រឡប់ទៅទំព័រដើម' }}{{ countdown() }} វិនាទី...
+    </p>
+
+    @if (subTitle()) {
+      <p>{{ subTitle() }}</p>
+    }
+  </div>
+</div>

@@ -18,18 +18,34 @@
       </div>
 
       <div class="form-group">
-        <mat-form-field appearance="outline" class="full-width">
+        <mat-form-field appearance="outline">
           <mat-label>លេខសម្ងាត់</mat-label>
-          <input matInput type="password" />
-
-          <button mat-icon-button matSuffix type="button">
-            <mat-icon>visibility</mat-icon>
+          <input
+            name="password"
+            matInput
+            placeholder=""
+            formControlName="password"
+            [type]="passwordInputType()"
+            required
+            autocomplete="current-password"
+          />
+          <button mat-icon-button matSuffix type="button" (click)="toggleHide()">
+            <mat-icon>{{ visibilityIcon() }}</mat-icon>
           </button>
         </mat-form-field>
       </div>
 
       <div class="form-group" style="margin-top: 20px">
-        <button mat-raised-button color="primary" class="core-btn">ចូលប្រើប្រាស់</button>
+        <button mat-button class="core-btn" [disabled]="loading()">
+          @if (loading()) {
+            <mat-spinner
+              diameter="20"
+              strokeWidth="3"
+              style="display: inline-block; margin-right: 8px"
+            ></mat-spinner>
+          }
+          {{ loading() ? 'កំពុងចូល...' : 'ចូលប្រើប្រាស់' }}
+        </button>
       </div>
 
       <p class="ft-desc-copyright">©{{ currentYear() }} {{ drone.appReferacence }}</p>
